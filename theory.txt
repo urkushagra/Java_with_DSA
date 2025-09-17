@@ -1,1 +1,68 @@
+Object-Oriented Programming is a paradigm centered around the concept of objects, which are instances of classes. These objects encapsulate both data (attributes) and behavior (methods). Java is a fully object-oriented language (with the exception of primitive types) and supports the four fundamental principles of OOP: Encapsulation, Abstraction, Inheritance, and Polymorphism.
+
+1. Encapsulation
+
+Definition: Encapsulation is the mechanism of restricting direct access to the internal state (fields) of an object and exposing controlled access through methods (getters/setters).
+Purpose: Promotes data hiding, security, and integrity of data.
+Implementation in Java:
+Declaring fields as private.
+Providing public get and set methods.
+Example: An Engine class where the horsepower attribute is private and accessed through methods.
+Significance: Encapsulation improves maintainability and modularity by allowing changes to the internal representation without affecting external code.
+
+2. Abstraction
+Definition: Abstraction is the process of hiding implementation details and exposing only essential features. It allows developers to work at a higher conceptual level.
+Purpose: To separate the definition of behavior from its implementation.
+Implementation in Java:
+Abstract classes (abstract keyword).
+Interfaces.
+Example: The abstract Vehicle class with an abstract method start() forces subclasses (Car, Bike) to provide their own implementation.
+Significance: Abstraction reduces complexity by focusing on relevant details and deferring implementation to subclasses.
+
+3. Inheritance
+Definition: Inheritance is a mechanism that allows one class (subclass) to acquire the properties and behaviors of another class (superclass).
+Purpose: To promote reusability and establish a hierarchical relationship between classes.
+Implementation in Java:
+extends keyword for classes.
+implements keyword for interfaces.
+Example: Car and Bike inherit from the abstract Vehicle class, reusing its attributes and methods.
+Significance: Inheritance supports code reuse, reduces redundancy, and provides a natural way to model real-world hierarchies.
+
+4. Polymorphism
+Definition: Polymorphism refers to the ability of an object to take many forms. In Java, it allows one interface to be used for different data types or implementations.
+Types:
+Compile-time Polymorphism (Method Overloading): Same method name but different parameter lists.
+Runtime Polymorphism (Method Overriding): A subclass provides its own implementation of a method defined in the superclass.
+Example:
+Compile-time: honk() and honk(String mood) in the Car class.
+Runtime: start() in Car and Bike providing different implementations.
+Significance: Polymorphism increases flexibility, enhances code reusability, and simplifies code maintenance.
+Supporting Concepts in Java OOP
+
+Class and Object
+A class is a blueprint that defines attributes and methods.
+An object is an instance of a class, created at runtime.
+
+Composition
+A "has-a" relationship between classes.
+
+Example: A Car has an Engine.
+
+Interfaces vs Abstract Classes
+Interfaces define contracts (what a class should do) without implementation.
+Abstract classes may provide both abstract methods and partial implementation.
+
+Access Modifiers
+Control visibility and encapsulation: public, private, protected, and default (package-private).
+
+
+Encourages modularity: Classes and objects allow breaking down complex systems into manageable parts.
+
+Promotes reusability: Code can be reused via inheritance and composition.
+
+Facilitates maintainability: Encapsulation and abstraction ensure that internal changes do not affect external usage.
+
+Supports scalability: Polymorphism allows for flexible system design that adapts to new requirements.
+
+Provides a real-world modeling approach: OOP maps naturally to real-world entities and their interactions.
 
