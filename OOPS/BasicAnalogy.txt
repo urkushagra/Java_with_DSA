@@ -1,0 +1,37 @@
+          Vehicle (abstract)
+          + brand: String
+          + showBrand()
+          + start() [abstract]
+                 |
+   -------------------------------
+   |                             |
+ Car                          Bike
+ + engine: Engine             + start()
+ + start()                    |
+ + honk()                     |
+ + honk(String)                |
+                               |
+               Engine
+          + horsepower: int
+          + type: String
+          + get/set horsepower
+          + getType()
+
+
+            OOP Concept       ↔        Real Life Example
+------------------------------------------------------------
+ Encapsulation               ↔  Heart hidden inside the body 
+ Abstraction                 ↔  "Idea of Vehicle" (car, bike, bus)
+ Inheritance                 ↔  Family tree (child inherits traits)
+ Polymorphism                ↔  Word with many meanings:
+                                - "Honk()" normal beep
+                                - "Honk(String mood)" angry beep
+                                - Car starts with key
+                                - Bike starts with kick
+
+
+## 📌 Real-Life Analogy
+- **Encapsulation** → Heart is hidden, only accessed in a controlled way.  
+- **Abstraction** → We know "Vehicle" exists, but each vehicle starts differently.  
+- **Inheritance** → Children inherit traits from parents, just like Car/Bike inherit from Vehicle.  
+- **Polymorphism** → "Start()" behaves differently for Car and Bike.  
