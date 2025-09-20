@@ -1,0 +1,119 @@
+1. Class
+A class is a blueprint or template for creating objects.
+It defines properties (fields/variables) and behaviors (methods/functions).
+Think of it as a design (like a blueprint of a house) — it doesn’t exist physically until an object is made.
+👉 Example in real life:
+Class = Car design
+Objects = Toyota, BMW, Tesla (created using the Car design)
+
+2. Object
+An object is an instance of a class.
+It has state (data/attributes) and behavior (methods/actions).
+Objects are the real-world entities in programming.
+👉 Example:
+Object = My red Toyota car with license plate XYZ123
+
+3. Encapsulation
+Wrapping data (variables) and methods (functions) together inside a class.
+It provides data hiding → internal details are hidden, only necessary info is exposed.
+Achieved using access modifiers (public, private, protected).
+👉 Example:
+ATM Machine: You only press buttons; internal cash distribution logic is hidden.
+
+4. Abstraction
+Hiding implementation details and showing only functionality to the user.
+Achieved using abstract classes and interfaces.
+Focuses on what an object does instead of how it does it.
+👉 Example:
+Driving a car: You just use steering, accelerator, and brakes → you don’t care about how the engine works internally.
+
+5. Inheritance
+One class inherits properties and behaviors of another class.
+Promotes code reusability.
+Parent class = Superclass, Child class = Subclass.
+Types in Java:
+
+Single Inheritance
+
+Multilevel Inheritance
+
+Hierarchical Inheritance
+(Note: Java does not support multiple inheritance using classes, but it is possible with interfaces.)
+👉 Example:
+Animal → Dog (inherits from Animal) → Labrador (inherits from Dog).
+
+6. Polymorphism
+"One name, many forms."
+Ability of an object to take different forms based on context.
+Types:
+Compile-time Polymorphism (Method Overloading) → Same method name with different parameters.
+Runtime Polymorphism (Method Overriding) → Subclass provides its own implementation of a method already in the superclass.
+👉 Example:
+Person role changes: As a student in class, as a customer in a shop, as a passenger in a bus.
+
+7. Constructor
+A special method used to initialize objects.
+Same name as class, no return type.
+Types:
+Default Constructor (no parameters)
+Parameterized Constructor (with parameters)
+Copy Constructor (copies values from another object – not built-in in Java, but can be written manually).
+👉 Example:
+When you buy a phone (object), it comes pre-configured (initialized) with settings using a constructor.
+
+8. Interface
+A contract that defines what a class must do, but not how.
+Only method declarations (no implementation, unless using default/static methods in modern Java).
+Supports multiple inheritance in Java.
+👉 Example:
+Remote Control Interface: Defines buttons (power on/off, volume up/down) but does not specify how each TV brand implements them.
+
+9. Abstract Class
+A class that cannot be instantiated directly.
+Can contain both abstract methods (no body) and concrete methods (with body).
+Used when you want partial abstraction.
+👉 Example:
+Shape class: Defines a method draw() but doesn’t specify how → subclasses like Circle, Rectangle, Triangle implement it differently.
+
+10. Access Modifiers
+Control visibility of classes, variables, and methods.
+
+Types:
+
+public → Accessible everywhere
+
+private → Accessible only inside the class
+
+protected → Accessible within package + subclasses
+
+default (no modifier) → Accessible within the same package
+
+11. Static Keyword
+Belongs to the class, not the object.
+Used for:
+
+Static variables (shared among all objects)
+Static methods (can be called without creating an object)
+Static blocks (used for initialization)
+👉 Example:
+College Name = Static (common for all students), Student Name = Non-static (unique to each student).
+
+12. ‘this’ and ‘super’ keywords
+this → Refers to the current object.
+super → Refers to the parent (superclass) object.
+👉 Example:
+this = Me in my house.
+super = My father in his house (parent class).
+
+13. Method Overloading (Compile-time Polymorphism)
+Multiple methods with the same name but different parameters.
+👉 Example:
+Calculator → add(int, int), add(double, double), add(int, double).
+
+14. Method Overriding (Runtime Polymorphism)
+A subclass provides a new implementation for a method that already exists in the parent class.
+👉 Example:
+Animal has method sound().
+Dog overrides it → sound() = bark.
+
+Cat overrides it → sound() = meow.
