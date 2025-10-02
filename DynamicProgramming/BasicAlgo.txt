@@ -1,0 +1,28 @@
+Define dp[i] as the result for subproblem of size i.
+Write recurrence dp[i] = f(dp[i-1], dp[i-2], …).
+Initialize base cases.
+Iterate from i = 2 to n (bottom-up) OR use recursion + memoization.
+Return dp[n].
+
+Problem: Find the nth Fibonacci number.
+Fibonacci: 0, 1, 1, 2, 3, 5, 8 …
+Step 1: Define State
+dp[i] = the i-th Fibonacci number.
+Step 2: Recurrence
+dp[i] = dp[i-1] + dp[i-2]
+Step 3: Base Case
+dp[0] = 0, dp[1] = 1
+
+Code (Tabulation):
+
+
+int fib(int n) {
+    int[] dp = new int[n+1];
+    dp[0] = 0; dp[1] = 1;
+    for (int i = 2; i <= n; i++) {
+        dp[i] = dp[i-1] + dp[i-2];
+    }
+    return dp[n];
+}
+
+ Here, you see recursion turns into a simple loop using DP.
