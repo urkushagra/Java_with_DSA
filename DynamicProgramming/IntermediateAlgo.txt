@@ -1,0 +1,40 @@
+Define dp[i][j] as the result for first i elements / first i, j cells.
+Write recurrence relation based on choices (take/not take, move right/down).
+Initialize base cases (like empty array or zero weight).
+Fill the table row by row (or column by column).
+Return dp[n][m] (final state).
+
+
+Problem: You have n items with value[] and weight[]. Maximize value in a bag of capacity W.
+Step 1: Define State
+dp[i][w] = maximum value using first i items with capacity w.
+Step 2: Recurrence
+
+if (weight[i-1] <= w)
+   dp[i][w] = max(dp[i-1][w], value[i-1] + dp[i-1][w - weight[i-1]])
+else
+   dp[i][w] = dp[i-1][w]
+
+
+Step 3: Base Case
+dp[0][*] = 0 (no items → no value)
+dp[*][0] = 0 (capacity 0 → no value)
+
+Code (Tabulation):
+
+int knapSack(int W, int[] wt, int[] val, int n) {
+    int[][] dp = new int[n+1][W+1];
+    for (int i = 1; i <= n; i++) {
+        for (int w = 1; w <= W; w++) {
+            if (wt[i-1] <= w) {
+                dp[i][w] = Math.max(dp[i-1][w], val[i-1] + dp[i-1][w - wt[i-1]]);
+            } else {
+                dp[i][w] = dp[i-1][w];
+            }
+        }
+    }
+    return dp[n][W];
+}
+
+
+Here, you see choice-based DP (take / not take).
