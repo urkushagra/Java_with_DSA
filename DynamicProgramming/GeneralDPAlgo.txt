@@ -1,0 +1,30 @@
+🔹 Step 1: Understand the Problem
+Identify if it has Optimal Substructure (big problem built from smaller ones).
+Check for Overlapping Subproblems (same subproblem repeats).
+👉 If both exist → DP is a good fit.
+
+🔹 Step 2: Define the State
+Decide what dp[i] (or dp[i][j]) represents.
+Basic DP (1D): Often just depends on i (e.g., Fibonacci, climbing stairs).
+Intermediate DP (2D): Usually grid/string problems (dp[i][j] = answer for prefix/subgrid).
+Advanced DP: Might need multiple dimensions (dp[mask][i], dp[i][j][k]).
+
+🔹 Step 3: Write the Recurrence Relation
+Express the solution of a state using smaller states.
+Example (Fibonacci): dp[n] = dp[n-1] + dp[n-2]
+
+🔹 Step 4: Set the Base Case
+Initialize the smallest problems.
+Example: Fibonacci → dp[0] = 0, dp[1] = 1
+Example: Knapsack → dp[0][*] = 0 (no items = no value)
+
+🔹 Step 5: Choose an Approach
+Top-Down (Memoization):
+Use recursion with caching (good for understanding).
+Bottom-Up (Tabulation):
+Use loops to fill dp table (faster, avoids recursion overhead).
+
+🔹 Step 6: Optimize (if needed)
+Reduce space complexity if only a few previous states are required.
+
+Fibonacci can be reduced from O(n) space → O(1) space.
