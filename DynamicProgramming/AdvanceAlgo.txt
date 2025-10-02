@@ -1,0 +1,43 @@
+Define state with multiple dimensions (e.g., dp[i][j] = LCS of first i and j chars).
+Write recurrence carefully (use character comparisons, subset masks, or graph transitions).
+Base case depends on problem type (empty string/tree root/bitmask = 0).
+Use tabulation for performance, memoization if recursion is more natural.
+Apply optimizations:
+ Space reduction (rolling arrays).
+ Bitmask compression.
+ Graph DP with topological order.
+
+
+Problem: Find length of longest subsequence common to strings s1 and s2.
+Example: s1 = "abcde", s2 = "ace" → LCS = "ace" → length = 3
+Step 1: Define State
+dp[i][j] = length of LCS of first i chars of s1 and first j chars of s2.
+Step 2: Recurrence
+
+if s1[i-1] == s2[j-1]:
+   dp[i][j] = 1 + dp[i-1][j-1]
+else:
+   dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+
+
+Step 3: Base Case
+dp[0][*] = 0, dp[*][0] = 0 (empty string → LCS = 0)
+
+Code (Tabulation):
+
+int lcs(String s1, String s2) {
+    int n = s1.length(), m = s2.length();
+    int[][] dp = new int[n+1][m+1];
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (s1.charAt(i-1) == s2.charAt(j-1))
+                dp[i][j] = 1 + dp[i-1][j-1];
+            else
+                dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
+        }
+    }
+    return dp[n][m];
+}
+
+
+Here, you see 2D string DP with character comparison.
