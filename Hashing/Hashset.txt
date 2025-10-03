@@ -1,0 +1,46 @@
+🔑 What is HashSet?
+HashSet is a part of Java’s Collection Framework.
+It implements the Set interface and is backed by a HashMap internally.
+It stores unique elements only (no duplicates allowed).
+It allows at most one null value.
+It does not maintain insertion order (unlike LinkedHashSet).
+
+⚙️ Internal Working
+When you insert an element into a HashSet, it uses the element’s hashCode() method to calculate a hash value.
+The hash value determines the bucket (index in the hash table) where the element will be stored.
+If another element already exists at the same bucket (collision), it uses equals() to check uniqueness.
+If the element is unique, it’s inserted; otherwise, it’s ignored.
+
+📌 Key Properties
+Duplicates not allowed → Automatically ignores duplicates.
+Order not guaranteed → Elements are stored based on hash values, not insertion order.
+Null allowed once → Only one null element is permitted.
+Fast performance → Average case O(1) for add, remove, and contains.
+import java.util.*;
+
+class HashSetDemo {
+    public static void main(String[] args) {
+        HashSet<String> set = new HashSet<>();
+        
+        set.add("Apple");
+        set.add("Banana");
+        set.add("Mango");
+        set.add("Apple"); // Duplicate, won’t be added
+        set.add(null);    // null allowed
+        
+        System.out.println(set); 
+        // Output could be: [Banana, Apple, Mango, null]
+        // (order not guaranteed)
+        
+        System.out.println(set.contains("Mango")); // true
+        set.remove("Banana");
+        System.out.println(set); // [Apple, Mango, null]
+    }
+}
+
+
+🔥 Real-World Use Cases
+Removing duplicates from a collection.
+Checking membership quickly (e.g., “Is this user in the banned list?”).
+Finding unique items (like unique words in a document).
+Implementing algorithms that require set-based operations (union, intersection, difference).
