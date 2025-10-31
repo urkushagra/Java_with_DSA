@@ -1,59 +1,42 @@
-# 🚀 Java + DSA Repository  
+# 🚀 Java With DSA — Conquer the Code Universe 🌌
 
-Welcome to my **Java with Data Structures and Algorithms** repository!  
-This repo is a collection of solutions, notes, and implementations that I’ve been working on while practicing **DSA for interviews, problem-solving, and competitive programming**.  
+> “Code. Compile. Conquer. Repeat.” 🧠💻
 
----
-
-## 📂 Repository Structure
-- 📘 **Core Java** – OOPs, Collections Framework, Exception Handling, Generics, Streams  
-- ⚡ **DSA in Java** – Arrays, Strings, Linked Lists, Stacks, Queues, Trees, Graphs, Heaps  
-- 🧩 **LeetCode / GFG / HackerRank Problems** – With optimized solutions and explanations  
-- 📝 **Notes & References** – Quick cheatsheets for time complexity and patterns  
+Welcome to **Java With DSA**, a cosmic repository where **Data Structures** meet **Algorithms**, and both fall in love with **Java** ☕.  
+If you’re a developer, student, or code wizard trying to **level up your logic game**, this repo is your new gym. 🏋️‍♂️
 
 ---
 
-## 🛠️ Topics Covered
-- ✅ Arrays & Strings (Sliding Window, Two Pointers, Prefix Sum)  
-- ✅ Linked List (Singly, Doubly, Fast-Slow Pointers)  
-- ✅ Stack & Queue (Monotonic Stack, Min/Max Queue)  
-- ✅ Trees (Binary Tree, BST, Traversals, Recursion)  
-- ✅ Graphs (BFS, DFS, Topological Sort, Dijkstra, Union-Find)  
-- ✅ Dynamic Programming (Classic problems + Patterns)  
-- ✅ Greedy, Backtracking, Bit Manipulation  
-- ✅ Java Collections Framework (ArrayList, HashMap, PriorityQueue, etc.)  
+## ⚡ What’s Inside?
+
+✨ A complete collection of **Java-based DSA implementations**, from basics to brain-melters:
+- 📦 **Arrays, Strings, Linked Lists**
+- 🌲 **Stacks, Queues, Trees, Graphs**
+- 💡 **Sorting & Searching Algorithms**
+- 🧭 **Recursion & Dynamic Programming**
+- 🔐 **HashMaps, Heaps, and Backtracking**
+- 🧮 **Maths & Bit Manipulation**
+- 🧠 **Interview-level Problems & Patterns**
 
 ---
 
-## ⚡ Interesting References for Java + DSA
-Here are some **gold resources** I’ve been following:  
+## 🧰 Tech Stack
 
-- 📖 **Books**  
-  - *Introduction to Algorithms (CLRS)* – The Bible of DSA  
-  - *Data Structures and Algorithms in Java* by Robert Lafore  
-  - *Effective Java* by Joshua Bloch  
-
-- 🌐 **Websites / Practice**  
-  - [LeetCode](https://leetcode.com/) – Best for interview prep  
-  - [GeeksforGeeks](https://www.geeksforgeeks.org/) – Concepts + Problems  
-  - [HackerRank](https://www.hackerrank.com/domains/tutorials/10-days-of-java) – Hands-on practice  
-  - [Coding Ninjas Java + DSA](https://www.codingninjas.com/) – Beginner-friendly  
-
-- 🎥 **YouTube Playlists**  
-  - [Kunal Kushwaha - Java + DSA Bootcamp](https://www.youtube.com/playlist?list=PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ)  
-  - [Abdul Bari - Algorithms](https://www.youtube.com/user/abdulbari2020)  
-  - [Code with Harry - Java Tutorials](https://www.youtube.com/playlist?list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q)  
+| Tool | Description |
+|------|--------------|
+| ☕ **Java 17+** | The language of choice |
+| 🧩 **VS Code / IntelliJ IDEA** | For smooth coding vibes |
+| 🧪 **JUnit** | For testing your DSA sanity |
+| 🌀 **Git & GitHub** | Because sharing is caring |
 
 ---
 
-## 💡 Why This Repo?
-- 📌 To document my **learning journey**  
-- 📌 To help others struggling with Java + DSA  
-- 📌 To keep all important **interview patterns & problems** in one place  
+## 🧭 Roadmap
+
+1. ✅ **Level 1** → Java Basics & Object-Oriented Programming  
+2. 🚧 **Level 2** → Data Structures Deep Dive  
+3. 🔥 **Level 3** → Algorithmic Challenges & LeetCode Patterns  
+4. 🌟 **Level 4** → Competitive Programming & System Design  
 
 ---
 
-## 🚀 How to Use
-1. Clone this repo  
-   ```bash
-   git clone https://github.com/your-username/java-dsa.git
