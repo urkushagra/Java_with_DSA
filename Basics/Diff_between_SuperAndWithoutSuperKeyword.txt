@@ -1,0 +1,85 @@
+Both codes work — but the mechanism behind constructor calls differs slightly depending on whether you write super() explicitly or not.
+
+Code without super():
+
+class Person extends Admin {
+Person() {
+System.out.println("Person created!");
+}
+}
+
+What happens here:
+Even though you didn’t write super();, Java automatically inserts it as the first line of every constructor unless you write it yourself.
+So the compiler secretly treats your code as:
+Person() {
+super(); // inserted automatically by Java
+System.out.println("Person created!");
+}
+Result: The Admin() constructor still runs first, because of this implicit super().
+
+Code with explicit super():
+
+class Person extends Admin {
+Person() {
+super(); // you wrote it explicitly
+System.out.println("Person created!");
+}
+}
+
+What happens here:
+You explicitly tell Java to call the parent (Admin) constructor first. This is functionally identical to the previous one — but now you control the call explicitly.
+
+Difference summary:
+
+Without super():
+
+Call to parent constructor happens implicitly (compiler adds it).
+
+You cannot pass arguments to the parent constructor (since it’s hidden).
+
+Slightly shorter, but less clear for beginners.
+
+Works fine if parent has a no-argument constructor.
+
+With super():
+
+Call to parent constructor happens explicitly (you write it yourself).
+
+You can pass arguments to a specific parent constructor.
+
+More clear and explicit, shows that parent’s constructor is called.
+
+Required if parent has no default constructor or you want to call a specific one.
+
+Example where super() is required:
+
+class Admin {
+Admin(String msg) {
+System.out.println(msg);
+}
+}
+
+class Person extends Admin {
+Person() {
+// super(); ❌ Compiler error (no default constructor)
+super("Approved by Admin!!!"); // ✅ must call explicitly
+System.out.println("Person created!");
+}
+}
+
+Here, the explicit super("Approved by Admin!!!") is necessary because Admin has no default constructor.
+
+Summary Table (text version):
+
+Scenario: Parent has default constructor → Need super()? No → Reason: Java adds it automatically
+Scenario: Parent has parameterized constructor only → Need super()? Yes → Reason: Must specify which one to call
+Scenario: You want to control or clarify inheritance flow → Need super()? Yes → Reason: Improves readability and clarity
+
+Final takeaway:
+Your two codes behave the same right now because:
+
+The parent class (Admin) has a default constructor, and
+
+The compiler automatically adds super() if you don’t.
+
+But writing super() explicitly is a good habit, especially once you start working with parameterized parent constructors or multi-level inheritance (like Admin → Person → Student).
