@@ -1,0 +1,9 @@
+difference between extends and implements
+
+| Feature              | extends                                | implements                                 |
+| -------------------- | -------------------------------------- | ------------------------------------------ |
+| Works on             | Class → Class / Class → Abstract class | Class → Interface                          |
+| Number allowed       | Only one parent class                  | Multiple interfaces                        |
+| Inherits code?       | YES, inherits methods/variables        | NO, only method declarations               |
+| Methods to implement | Optional (can override)                | Mandatory (must implement all methods)     |
+| Purpose              | Reuse functionality                    | Achieve abstraction / multiple inheritance |
