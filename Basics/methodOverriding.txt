@@ -1,0 +1,57 @@
+Here is the requested short explanation of Method Overriding:
+
+Method Overriding:
+------------------
+Method overriding allows a child class to provide its own implementation of a method that is already defined in a parent class or interface.
+
+Key Points:
+1. Happens only with inheritance (extends) or interface implementation (implements).
+2. Method name must be the same.
+3. Parameters must be the same.
+4. Return type must be the same.
+5. Access modifier cannot be more restrictive.
+6. Used to change or customize parent class behavior.
+
+Example with extends:
+---------------------
+class Animal {
+    void sound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() { // overriding
+        System.out.println("Dog barks 🐶");
+    }
+}
+
+Example with implements:
+------------------------
+interface Animal {
+    void sound();
+}
+
+class Dog implements Animal {
+    public void sound() { // overriding
+        System.out.println("Dog barks 🐶");
+    }
+}
+
+Why overriding is used:
+-----------------------
+- To change parent class behavior.
+- To implement custom logic.
+- To achieve runtime polymorphism.
+
+Runtime polymorphism example:
+-----------------------------
+Animal a = new Dog();
+a.sound(); // Output: Dog barks 🐶
+
+Short Summary:
+--------------
+- Overriding = child changes parent method behavior.
+- Works with extends and implements.
+- Must have same method signature.
+- Enables polymorphism.
