@@ -1,89 +1,86 @@
-import java.util.*;
-
 class Solution {
+  public boolean canMouseWin(String[] grid, int catJump, int mouseJump) {
+    final int m = grid.length;
+    final int n = grid[0].length();
+    int nFloors = 0;
+    int cat = 0;   // cat's position
+    int mouse = 0; // mouse's position
 
-    int rows, cols;
-    char[][] grid;
-    int[][][] dp;
-    int[][] dirs = {{1,0},{-1,0},{0,1},{0,-1}};
-    int catJump, mouseJump;
-    int food;
+    for (int i = 0; i < m; ++i)
+      for (int j = 0; j < n; ++j) {
+        if (grid[i].charAt(j) != '#')
+          ++nFloors;
+        if (grid[i].charAt(j) == 'C')
+          cat = hash(i, j, n);
+        else if (grid[i].charAt(j) == 'M')
+          mouse = hash(i, j, n);
+      }
 
-    public boolean canMouseWin(String[] g, int catJump, int mouseJump) {
-        rows = g.length;
-        cols = g[0].length();
-        grid = new char[rows][cols];
-        this.catJump = catJump;
-        this.mouseJump = mouseJump;
+    Boolean[][][] mem = new Boolean[m * n][m * n][nFloors * 2];
+    return canMouseWin(grid, cat, mouse, 0, catJump, mouseJump, m, n, nFloors, mem);
+  }
 
-        int mouse = 0, cat = 0;
+  private static final int[][] DIRS = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
-        // encode positions
-        for (int i = 0; i < rows; i++) {
-            grid[i] = g[i].toCharArray();
-            for (int j = 0; j < cols; j++) {
-                int pos = i * cols + j;
-                if (grid[i][j] == 'M') mouse = pos;
-                if (grid[i][j] == 'C') cat = pos;
-                if (grid[i][j] == 'F') food = pos;
-            }
+  // Returns true if the mouse can win, where the cat is on (i / 8, i % 8), the
+  // mouse is on (j / 8, j % 8), and the turns is k.
+  private boolean canMouseWin(String[] grid, int cat, int mouse, int turn, int catJump,
+                              int mouseJump, int m, int n, int nFloors, Boolean[][][] mem) {
+    // We already search the whole touchable grid.
+    if (turn == nFloors * 2)
+      return false;
+    if (mem[cat][mouse][turn] != null)
+      return mem[cat][mouse][turn];
+
+    if (turn % 2 == 0) {
+      // the mouse's turn
+      int i = mouse / n;
+      int j = mouse % n;
+      for (int[] dir : DIRS) {
+        for (int jump = 0; jump <= mouseJump; ++jump) {
+          int x = i + dir[0] * jump;
+          int y = j + dir[1] * jump;
+          if (x < 0 || x == m || y < 0 || y == n)
+            break;
+          if (grid[x].charAt(y) == '#')
+            break;
+          // The mouse eats the food, so the mouse wins.
+          if (grid[x].charAt(y) == 'F')
+            return mem[cat][mouse][turn] = true;
+          if (canMouseWin(grid, cat, hash(x, y, n), turn + 1, catJump, mouseJump, m, n, nFloors,
+                          mem))
+            return mem[cat][mouse][turn] = true;
         }
-
-        dp = new int[rows * cols][rows * cols][2];
-
-        return dfs(mouse, cat, 0, 0);
+      }
+      // The mouse can't win, so the mouse loses.
+      return mem[cat][mouse][turn] = false;
+    } else {
+      // the cat's turn
+      final int i = cat / n;
+      final int j = cat % n;
+      for (int[] dir : DIRS)
+        for (int jump = 0; jump <= catJump; ++jump) {
+          final int x = i + dir[0] * jump;
+          final int y = j + dir[1] * jump;
+          if (x < 0 || x == m || y < 0 || y == n)
+            break;
+          if (grid[x].charAt(y) == '#')
+            break;
+          // The cat eats the food, so the mouse loses.
+          if (grid[x].charAt(y) == 'F')
+            return mem[cat][mouse][turn] = false;
+          final int nextCat = hash(x, y, n);
+          if (nextCat == mouse)
+            return mem[cat][mouse][turn] = false;
+          if (!canMouseWin(grid, nextCat, mouse, turn + 1, catJump, mouseJump, m, n, nFloors, mem))
+            return mem[cat][mouse][turn] = false;
+        }
+      // The cat can't win, so the mouse wins.
+      return mem[cat][mouse][turn] = true;
     }
+  }
 
-    private boolean dfs(int mouse, int cat, int turn, int moves) {
-
-        if (moves >= 1000) return false;
-        if (mouse == food) return true;
-        if (cat == food || cat == mouse) return false;
-
-        if (dp[mouse][cat][turn] != 0) {
-            return dp[mouse][cat][turn] == 1;
-        }
-
-        if (turn == 0) { // mouse turn
-            for (int next : getMoves(mouse, mouseJump)) {
-                if (dfs(next, cat, 1, moves + 1)) {
-                    dp[mouse][cat][turn] = 1;
-                    return true;
-                }
-            }
-            dp[mouse][cat][turn] = -1;
-            return false;
-
-        } else { // cat turn
-            for (int next : getMoves(cat, catJump)) {
-                if (!dfs(mouse, next, 0, moves + 1)) {
-                    dp[mouse][cat][turn] = 1;
-                    return true;
-                }
-            }
-            dp[mouse][cat][turn] = -1;
-            return false;
-        }
-    }
-
-    private List<Integer> getMoves(int pos, int jump) {
-        List<Integer> moves = new ArrayList<>();
-        int r = pos / cols, c = pos % cols;
-
-        moves.add(pos); // stay
-
-        for (int[] d : dirs) {
-            for (int step = 1; step <= jump; step++) {
-                int nr = r + d[0] * step;
-                int nc = c + d[1] * step;
-
-                if (nr < 0 || nc < 0 || nr >= rows || nc >= cols) break;
-                if (grid[nr][nc] == '#') break;
-
-                moves.add(nr * cols + nc);
-            }
-        }
-
-        return moves;
-    }
+  private int hash(int i, int j, int n) {
+    return i * n + j;
+  }
 }
