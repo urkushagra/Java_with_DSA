@@ -7,6 +7,12 @@ class Solution {
         for (int x : nums1) sum1 += x;
         for (int x : nums2) sum2 += x;
 
+        if (sum1 == sum2) return 0;
+
+        if (nums1.length * 6 < nums2.length || nums2.length * 6 < nums1.length) {
+            return -1;
+        }
+
         // Ensure sum1 <= sum2
         if (sum1 > sum2) {
             return minOperations(nums2, nums1);
