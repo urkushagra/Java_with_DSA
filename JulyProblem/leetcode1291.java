@@ -1,0 +1,18 @@
+class Solution {
+    public List<Integer> sequentialDigits(int low, int high) {
+        List<Integer> result = new ArrayList<>();
+        String digits = "123456789";
+
+        for (int length = 2; length <= 9; length++) {
+            for (int start = 0; start + length <= 9; start++) {
+                int num = Integer.parseInt(digits.substring(start, start + length));
+
+                if (num > high) return result;
+                if (num >= low) result.add(num);
+            }
+        }
+
+        return result;
+    }
+}
+
